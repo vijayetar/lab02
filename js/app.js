@@ -17,7 +17,7 @@ function Animal (Obj) {
 $.ajax('./data/page-1.json',{method:'GET', dataType:'JSON'})
   .then(data=> {
     data.forEach(value => {
-      new Animal(value);
+      new Animal(value).render();
       // console.log(value.keyword);
     })
     dropOptions();
@@ -45,32 +45,46 @@ const dropOptions = () => {
     }
   })
   dropDownMenu(keyArr);
+  chooseHorn();
+}
+
+function dropDownMenu() {
+  const $newDropDown = $('#dropdown');
+  keyArr.forEach(value => {
+    const $options = $(`<option>${value}</option>`);
+    console.log('this is value', value);
+    $newDropDown.append($options);
+  })
 }
 
 
-
-
-function dropDownMenu() {
-  const $newDropDown = $('#dropdown').html();
-  ke
-  const $options = $('<option></option>');
-  $options.text(this.keyword);
-  // $options.html($newDropDown);
-  console.log('keyword',this.keyword);
-  $newDropDown.append($options);
-};
-
-
-//Feature 2
-// append the keywords to the dropdown
-// function keywords() {
-//   const $newDropDown = $('#dropdown').html();
-//   const $options = $('<option></option>');
-//   $newDropDown.html($options);
-// $options.html(animals[indx].)
-// };
 
 //make a dropdown menu with the keywords
 //make keywords an event handler
 // with each click, relevant images should be rendered
 //remove old images when next keyword is clicked
+function chooseHorn() {
+  $('select')
+    .change(function() {
+      $('section').hide();
+      let selected = $('select option:selected').text();
+      animals.forEach(value => {
+        if (selected === value.keyword) {
+          const imageTemplate = $('#image_template').html();
+          const $newSection = $('<section></section>');
+          $newSection.html(imageTemplate);
+          $newSection.find('img').attr('src',value.image_url);
+          $('main').append($newSection);
+        }
+      })
+    })
+}
+// $( "select" )
+//   .change(function () {
+//     var str = "";
+//     $( "select option:selected" ).each(function() {
+//       str += $( this ).text() + " ";
+//     });
+//     $( "div" ).text( str );
+//   })
+//   .change();
