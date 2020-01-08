@@ -9,7 +9,6 @@ function Animal (Obj) {
   this.description = Obj.description;
   this.keyword = Obj.keyword;
   this.horns = Obj.horns;
-  // keyArr.push(Obj.keyword);
   animals.push(this);
 }
 
@@ -23,13 +22,13 @@ $.ajax('./data/page-1.json',{method:'GET', dataType:'JSON'})
     dropOptions();
   });
 
-
-// render images
+// render images on page load
 Animal.prototype.render = function () {
   const imageTemplate = $('#image_template').html();
   const $newSection = $('<section></section>');
   $newSection.html(imageTemplate);
   $newSection.find('img').attr('src',this.image_url);
+  $newSection.find('img').attr('class', this.keyword);
   $('main').append($newSection);
 };
 
@@ -57,19 +56,13 @@ function dropDownMenu() {
   })
 }
 
-
-
-//make a dropdown menu with the keywords
-//make keywords an event handler
-// with each click, relevant images should be rendered
-//remove old images when next keyword is clicked
 function chooseHorn() {
   $('select')
     .change(function() {
       $('section').hide();
-      let selected = $('select option:selected').text();
+      let select = $(this).val();
       animals.forEach(value => {
-        if (selected === value.keyword) {
+        if (select === value.keyword) {
           const imageTemplate = $('#image_template').html();
           const $newSection = $('<section></section>');
           $newSection.html(imageTemplate);
@@ -79,12 +72,4 @@ function chooseHorn() {
       })
     })
 }
-// $( "select" )
-//   .change(function () {
-//     var str = "";
-//     $( "select option:selected" ).each(function() {
-//       str += $( this ).text() + " ";
-//     });
-//     $( "div" ).text( str );
-//   })
-//   .change();
+
