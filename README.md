@@ -19,11 +19,11 @@ Estimate of time needed to complete: __60min___
 
 Start time: __10:40___
 
-Finish time: _____
+Finish time: ___1:40__
 
-Actual time needed to complete: _____
+Actual time needed to complete: _3hours____
 
-Number and name of feature: ________________________________
+Number and name of feature: _____________Feature 3_______________
 
 Estimate of time needed to complete: _____
 
