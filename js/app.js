@@ -17,22 +17,10 @@ $.ajax('./data/page-1.json',{method:'GET', dataType:'JSON'})
   .then(data=> {
     data.forEach(value => {
       new Animal(value).toHtml();
-      // .render();
-      // console.log(value.keyword);
     })
     animalRender();
     dropOptions();
   });
-
-// render images on page load
-// Animal.prototype.render = function () {
-//   const imageTemplate = $('#image_template').html();
-//   const $newSection = $('<section></section>');
-//   $newSection.html(imageTemplate);
-//   $newSection.find('img').attr('src',this.image_url);
-//   $newSection.find('img').attr('class', this.keyword);
-//   $('main').append($newSection);
-// };
 
 //make new array of keywords while making sure that they are unique
 const keyArr = [];
@@ -62,9 +50,9 @@ function chooseHorn() {
     .change(function() {
       $('h2').hide();
       $('p').hide();
+      $('img').hide();
       let select = $(this).val();
       animals.forEach(value => {
-        console.log('checking element value', $(this).val());
         if (select === value.keyword) {
           $('#image_template').append(value.toHtml());
         } else if (select === 'default') {

@@ -9,13 +9,13 @@
   <link rel="stylesheet" href="css/layouts.css">
   <link rel="stylesheet" href="css/modules.css">
   <title>The Gallery of Horns</title>
-  <script id="neighborhood-template" type="text/x-handlebars-template">
+  <script id="animals-template" type="text/x-handlebars-template">
     <div>
-      <h2>Title: {{title}}</h2>
-      <img>Image: {{city}}
-      <p>Desciption: {{description}}</p>
-      <p>Keyword: {{keyword}}</p>
-      {{{body}}}
+        <h2>Title: {{title}}</h2>
+        <img src="{{image_url}}"> 
+        <p>Desciption: {{description}}</p>
+        <p>Keyword: {{keyword}}</p>
+        {{{body}}}
     </div>
   </script>
 </head>
@@ -31,7 +31,6 @@
     </select>
     
     <section id="image_template">
-     <img src="" alt="">
     </section>
 
   
