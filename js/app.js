@@ -16,21 +16,23 @@ function Animal (Obj) {
 $.ajax('./data/page-1.json',{method:'GET', dataType:'JSON'})
   .then(data=> {
     data.forEach(value => {
-      new Animal(value).render();
+      new Animal(value).toHtml();
+      // .render();
       // console.log(value.keyword);
     })
+    animalRender();
     dropOptions();
   });
 
 // render images on page load
-Animal.prototype.render = function () {
-  const imageTemplate = $('#image_template').html();
-  const $newSection = $('<section></section>');
-  $newSection.html(imageTemplate);
-  $newSection.find('img').attr('src',this.image_url);
-  $newSection.find('img').attr('class', this.keyword);
-  $('main').append($newSection);
-};
+// Animal.prototype.render = function () {
+//   const imageTemplate = $('#image_template').html();
+//   const $newSection = $('<section></section>');
+//   $newSection.html(imageTemplate);
+//   $newSection.find('img').attr('src',this.image_url);
+//   $newSection.find('img').attr('class', this.keyword);
+//   $('main').append($newSection);
+// };
 
 //make new array of keywords while making sure that they are unique
 const keyArr = [];
@@ -51,7 +53,6 @@ function dropDownMenu() {
   const $newDropDown = $('#dropdown');
   keyArr.forEach(value => {
     const $options = $(`<option>${value}</option>`);
-    console.log('this is value', value);
     $newDropDown.append($options);
   })
 }
@@ -59,23 +60,28 @@ function dropDownMenu() {
 function chooseHorn() {
   $('select')
     .change(function() {
-      console.log('checking element value', $(this).val());
-      $('section').hide();
+      $('h2').hide();
+      $('p').hide();
       let select = $(this).val();
       animals.forEach(value => {
+        console.log('checking element value', $(this).val());
         if (select === value.keyword) {
-          const imageTemplate = $('#image_template').html();
-          const $newSection = $('<section></section>');
-          $newSection.html(imageTemplate);
-          $newSection.find('img').attr('src',value.image_url);
-          $('main').append($newSection);
+          $('#image_template').append(value.toHtml());
         } else if (select === 'default') {
-          const imageTemplate = $('#image_template').html();
-          const $newSection = $('<section></section>');
-          $newSection.html(imageTemplate);
-          $newSection.find('img').attr('src',value.image_url);
-          $('main').append($newSection);
+          $('#image_template').append(value.toHtml());
         }
       })
     })
+}
+// trying handlebars out
+let templateId = '#animals-template';
+Animal.prototype.toHtml = function() {
+  let template = $(templateId).html();
+  let templateRender = Handlebars.compile(template);
+  return templateRender(this);
+};
+function animalRender() {
+  animals.forEach(animalObj => {
+    $('#image_template').append(animalObj.toHtml());
+  });
 }
