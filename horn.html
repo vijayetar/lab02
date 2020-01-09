@@ -8,13 +8,14 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layouts.css">
   <link rel="stylesheet" href="css/modules.css">
+  <link rel="stylesheet" href="css/themes.css">
   <title>The Gallery of Horns</title>
   <script id="animals-template" type="text/x-handlebars-template">
     <div>
-        <h2>Title: {{title}}</h2>
+        <h2>{{title}}</h2>
         <img src="{{image_url}}"> 
-        <p>Desciption: {{description}}</p>
-        <p>Keyword: {{keyword}}</p>
+        <p>{{description}}</p>
+        <p>{{keyword}}</p>
         {{{body}}}
     </div>
   </script>
@@ -28,6 +29,9 @@
     <a href="index.html">Home</a>
     <select id="dropdown">
         <option value="default">Filter by Keyword</option>
+    </select>
+    <select id="sortby">
+      <option value="default">Sort</option>
     </select>
     
     <section id="image_template">

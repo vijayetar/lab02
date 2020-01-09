@@ -43,14 +43,16 @@ function dropDownMenu() {
     const $options = $(`<option>${value}</option>`);
     $newDropDown.append($options);
   })
+  const $nextDropDown = $('#sortby');
+  const $firstOptions = $(`<option>Title</option>`);
+  const $secondOptions = $(`<option>Horns</option>`);
+  $nextDropDown.append($firstOptions,$secondOptions);
 }
 
 function chooseHorn() {
   $('select')
     .change(function() {
-      $('h2').hide();
-      $('p').hide();
-      $('img').hide();
+      $('div').hide();
       let select = $(this).val();
       animals.forEach(value => {
         if (select === value.keyword) {
