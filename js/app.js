@@ -43,6 +43,10 @@ function dropDownMenu() {
     const $options = $(`<option>${value}</option>`);
     $newDropDown.append($options);
   })
+  const $nextDropDown = $('#sortby');
+  const $firstOptions = $(`<option>Title</option>`);
+  const $secondOptions = $(`<option>Horns</option>`);
+  $nextDropDown.append($firstOptions,$secondOptions);
 }
 
 function chooseHorn() {
