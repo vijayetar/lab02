@@ -13,7 +13,7 @@ function Animal (Obj) {
 }
 
 //collecting the data from json file
-$.ajax('./data/page-1.json',{method:'GET', dataType:'JSON'})
+$.ajax('./data/page-2.json',{method:'GET', dataType:'JSON'})
   .then(data=> {
     data.forEach(value => {
       new Animal(value).render();
@@ -59,7 +59,6 @@ function dropDownMenu() {
 function chooseHorn() {
   $('select')
     .change(function() {
-      console.log('checking element value', $(this).val());
       $('section').hide();
       let select = $(this).val();
       animals.forEach(value => {
@@ -79,3 +78,8 @@ function chooseHorn() {
       })
     })
 }
+
+// make a button that allows user to go to next page
+// new page with new set of images. import images
+// button that returns to previous page
+// new filter for keywords for new page

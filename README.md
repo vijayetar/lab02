@@ -32,3 +32,13 @@ Start time: _____
 Finish time: _____
 
 Actual time needed to complete: _____
+
+Number and name of feature: Lab3 Feature 1
+
+Estimate of time needed to complete: 60mins
+
+Start time: 10:07
+
+Finish time: _____
+
+Actual time needed to complete: _____
