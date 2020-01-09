@@ -79,7 +79,3 @@ function chooseHorn() {
     })
 }
 
-// make a button that allows user to go to next page
-// new page with new set of images. import images
-// button that returns to previous page
-// new filter for keywords for new page
