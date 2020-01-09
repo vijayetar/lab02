@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <link rel="stylesheet" href="css/modules.css">
+  <title>The Gallery of Horns</title>
+  <script id="animals-template" type="text/x-handlebars-template">
+    <div>
+        <h2>Title: {{title}}</h2>
+        <img src="{{image_url}}"> 
+        <p>Desciption: {{description}}</p>
+        <p>Keyword: {{keyword}}</p>
+        {{{body}}}
+    </div>
+  </script>
+</head>
+<body>
+  <header>
+
+  </header>
+  <main>
+    <h1>Hey Second Page</h1>
+    <a href="index.html">Home</a>
+    <select id="dropdown">
+        <option value="default">Filter by Keyword</option>
+    </select>
+    
+    <section id="image_template">
+    </section>
+
+  
+
+  </main>
+  <footer>
+      © 2018 Code Fellows
+  </footer>
+  
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+<script type="text/javascript" src="js/app2.js"></script>
+</html>
+

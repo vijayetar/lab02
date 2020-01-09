@@ -13,7 +13,7 @@ function Animal (Obj) {
 }
 
 //collecting the data from json file
-$.ajax('./data/page-1.json',{method:'GET', dataType:'JSON'})
+$.ajax('./data/page-2.json',{method:'GET', dataType:'JSON'})
   .then(data=> {
     data.forEach(value => {
       new Animal(value).toHtml();
@@ -28,7 +28,6 @@ const keyArr = [];
 const dropOptions = () => {
   console.log(animals);
   animals.forEach(aniObj => {
-    // console.log('hello');
     if (!keyArr.includes(aniObj.keyword)) {
       keyArr.push(aniObj.keyword);
     }
