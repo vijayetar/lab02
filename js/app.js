@@ -48,9 +48,7 @@ function dropDownMenu() {
 function chooseHorn() {
   $('select')
     .change(function() {
-      $('h2').hide();
-      $('p').hide();
-      $('img').hide();
+      $('div').hide();
       let select = $(this).val();
       animals.forEach(value => {
         if (select === value.keyword) {

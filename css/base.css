@@ -1,7 +1,6 @@
 * {
   background-color: aqua;
+  box-sizing: border-box;
+  font-size: 0.8em;
 }
-img {
-  width: 20em;
-  height: 20em;
-}
+
